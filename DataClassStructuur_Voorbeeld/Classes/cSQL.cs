@@ -13,7 +13,7 @@ namespace DataClassStructuur_Voorbeeld.Classes
         public void loadQuiz()
         {
             // make it global
-            App.Quiz = new cQuiz("Dit is de naam van de quiz");
+            App.Quiz = new cQuiz("Quiz Nr 1");
             App.Quiz.Questions = getQuestions();
 
         }

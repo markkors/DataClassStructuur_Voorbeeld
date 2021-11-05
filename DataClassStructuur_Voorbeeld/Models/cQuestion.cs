@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,14 @@ namespace DataClassStructuur_Voorbeeld.Models
     {
         private string _question;
         public List<cAnswer> Answers;
+        private string _id;
+
         public cQuestion()
         {
             Guid g = Guid.NewGuid();
             _question = ($"Dit is een random gemaakte vraag - {g.ToString()}");
+            _id = g.ToString();
+
             Answers = App.SQL.getAnswers();
 
         }
@@ -26,6 +31,20 @@ namespace DataClassStructuur_Voorbeeld.Models
             get { return _question; }
             set { _question = value; }
         }
+
+        public string ID
+        {
+            get { return _id; }
+            set { 
+                _id = value;
+               
+            }
+        }
+
+
+
+       
+
     }
 
     

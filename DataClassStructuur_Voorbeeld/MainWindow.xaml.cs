@@ -32,6 +32,9 @@ namespace DataClassStructuur_Voorbeeld
             App.SQL = new cSQL();
             App.SQL.loadQuiz();
             ActiveQuiz = App.Quiz;
+
+            DataContext = App.Quiz;
+
             Debug.WriteLine(ActiveQuiz.Questions.Count);
             
             foreach(cQuestion a in ActiveQuiz.Questions)
@@ -42,5 +45,12 @@ namespace DataClassStructuur_Voorbeeld
 
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cQuestion q = (cQuestion)e.AddedItems[0];
+            ActiveQuiz.ActiveQuestionID = q.ID;
+            //lblActiveQuestion.Content = ActiveQuiz.ActiveQuestionID;
+            
+        }
     }
 }
